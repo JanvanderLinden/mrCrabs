@@ -60,7 +60,7 @@ class CrabResult:
     __jobNumberRegex = r"\( *([0-9]+)\/ *([0-9]+)\)"
     __errorRegex     = r"[0-9]+ jobs failed with exit code [0-9]+"
     def __init__(self, project_dir):
-        self.path = project_dir
+        self.path = project_dir.strip("/")
         self.name = os.path.basename(self.path)
         # shorten name
         self.name = self.name.replace("crab_","")
