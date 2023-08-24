@@ -89,6 +89,10 @@ class CrabResult:
         if "Enter GRID pass phrase" in self.query:
             printer.printError("need to init voms proxy")
             sys.exit()
+        if "Error: " in self.query:
+            printer.printError("Crab query didnt work:")
+            print(self.query)
+            sys.exit()
         
         self.query = self.query.replace("\t"," ")
         self.query = self.query.replace("\n"," ")
